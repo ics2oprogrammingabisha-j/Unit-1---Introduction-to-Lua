@@ -25,3 +25,46 @@ textObject = display.newText( "Hello, Abisha!", 500, 350, nil, 50 )
 
 -- sets the color to the text
 textObject:setTextColor(255/255, 255/255, 255/255)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
