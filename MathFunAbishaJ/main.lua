@@ -1,8 +1,9 @@
--- Title: NumericTextFields
--- Name: AbishaJesudas
+-- Title: MathFun
+-- Name: Your Name
 -- Course: ICS2O/3C
--- This program displays a math question and asks the user to answer the ina numeric text feilds 
------------------------------------------------------ hide the status bar
+-- This program...
+
+-- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
 -- sets the background colour
@@ -110,8 +111,33 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 ------------------------------------------------------------------------------------------------------
 
 -- call the function to ask the question
-AskQuestion()------------------------------------------------
+local function AskQuestion() 
+	-- generate a random number between 1 and 2 
+	-- *** MAKE SURE TO DECALRE THIS VARIABLE ABOVE
+	randomOperator = math.random(1,2)
 
+	-- generate 2 random numbers
+	randomNumber1 = math.random(0, 4)
+	randomNumber2 = math.random(0, 4)
 
+	-- if the random operator is 1, then do addition
+	if (randomOperator == 1) then
+
+		-- calculate the correct answer
+		correctAnswer = randomNumber1 + randomNumber2
+
+		-- create question in text object
+		questionOject.text = randomNumber1 .. " + " .. randomNumber2 .. " = "
+
+	-- otherwise, if the random operator is 2, do subtraction
+	elseif (randomOperator ==2) then
+		-- calculate the correct answer
+		correctAnswer = randomNumber1 - randomNumber2
+
+		-- create question in text object
+		questionObject.text = randomNumber1 .. " - " .. randomNumber2 .. " = "
+	end
+
+end		
 
 
