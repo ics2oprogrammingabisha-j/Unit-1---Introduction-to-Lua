@@ -10,7 +10,7 @@
 
 -- create my local variables
 local areaTextRectangle
-local textsize = 100
+local textsize = 50
 local myRectangle
 local widthOfRectangle =350
 local heightOfRectangle =200
@@ -58,23 +58,25 @@ areaTextRectangle.y = display.contentHeight/2
 -- set the colour of the newText
 areaTextRectangle:setTextColor(0, 0, 0)
 
+--------------------------------------------------------------------------------------------------
+
 -- create local variables
-local areaTextCircle
+local areaTextCircle = 50
 local myCircle
-local radiusOfCircle 
+local radiusOfCircle = 100
 local areaOfCircle
 
 -- draw the circle that half the width and height of the screen size.
-myCircle = display.newCircle(5, 5, radiusOfCircle)
+myCircle = display.newCircle(0, 0, radiusOfCircle)
 
 -- anchor the circle in the top right corner of the screen and set its (x,y) position 
 myCircle.anchorX = 0
 myCircle.anchorY = 0
-myCircle.x = 20
+myCircle.x = 780
 myCircle.y = 15
 
--- se width of border
-myCircle.strokeWidth = 10
+-- set width of border
+myCircle.strokeWidth = 15
 
 -- set the coulur of the circle
 myCircle:setFillColor(255/255, 255/255, 255/255)
@@ -90,3 +92,10 @@ areaText = display.newText ("-The area of this circle with a radius of \n" ..
     radiusOfCircle .. " is " ..
     areaOfCircle .. " pixels².", 0,0, Arial, textSize)
 
+areaText.anchorX = 0
+areaText.anchorY = 0
+areaText.x = 700
+areaText.y = display.contentHeight/2
+
+-- set the color of the newText
+areaTextCircle:setTextColor(0, 0, 0)

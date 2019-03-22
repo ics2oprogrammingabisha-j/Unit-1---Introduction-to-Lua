@@ -32,10 +32,11 @@ Girl2.y = 200
 -- Output: none 
 -- Description: when blue girl is touched, move her 
 local function Girl1Listener(touch)
+
 	if (touch.phase == "began") then
 		if (alreadyTouchedGirl1 == false) then
-			alreadyTouchedGirl2 = true
-		end 
+			  alreadyTouchedGirl2 = true
+     end 
 	end
 
     if ( (touch.phase == "moved") and (alreadyTouchedGirl2 == true) ) then
@@ -50,4 +51,5 @@ local function Girl1Listener(touch)
 end
 
 -- add the respective listeners to each object
-blueGirl:addEventListener(" touch", Girl2Listener)       
+Girl2:addEventListener("touch", Girl2Listener)  
+Girl1:addEventListener("touch", Girl1Listener)     
