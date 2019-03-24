@@ -21,10 +21,10 @@ local alreadyTouchedGirl1 = false
 local alreadyTouchedGirl2 = false 
 
 -- set the initial xand y position of myImage
-Girl1.x = 400
-Girl1.y = 500
+Girl1.x = 500
+Girl1.y = 550
 
-Girl2.x = 300
+Girl2.x = 200
 Girl2.y = 200
 
 -- Function: Girl2Listener
@@ -50,6 +50,5 @@ local function Girl1Listener(touch)
     end
 end
 
--- add the respective listeners to each object
-Girl2:addEventListener("touch", Girl2Listener)  
-Girl1:addEventListener("touch", Girl1Listener)     
+-- add the respective listeners to each object  
+Girl1:addEventListener("touch", Girl1Listener)

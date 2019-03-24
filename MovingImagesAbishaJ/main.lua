@@ -8,7 +8,7 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 -- global variables
-scrollSpeed = 2
+scrollspeed = 2
 
 -- background image with width and height
 local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536)
@@ -20,8 +20,8 @@ local beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
 beetleship.alpha = 1
 
 -- set the initial x and y postion of beetleship
-beetleship.x = 0
-beetleship.y = display.contentHeight/4 
+beetleship.x = 700
+beetleship.y = display.contentHeight/1 
 
 -- function: Moveship 
 -- Input: this function accepts an event listener
