@@ -8,7 +8,7 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 -- global variables
-scrollSpeed = 2
+scrollspeed = 2
 
 -- background image with width and height
 local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536)
@@ -17,11 +17,11 @@ local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536
 local beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
 
 -- set the image to be transparent
-beetleship.alpha = 0
+beetleship.alpha = 1
 
--- set the initial x and y postion of bettleship
-beetleship.x = 0
-beetleship.y = display.contentHeight/3 
+-- set the initial x and y postion of beetleship
+beetleship.x = 700
+beetleship.y = display.contentHeight/1 
 
 -- function: Moveship 
 -- Input: this function accepts an event listener
@@ -29,9 +29,13 @@ beetleship.y = display.contentHeight/3
 -- Description : this funtion adds the srroll speed to the x-value of the ship 
 local function Moveship(event)
 	-- add the scroll speed to the x-value of the ship
-	beetleship.x = beetleship.x + scrollSpeed
-	-- change the transparency of the ship every time it moves so that it fades out.
+	beetleship.width = beetleship.width - scrollspeed 
+	beetleship.height = beetleship.height - scrollspeed
+	beetleship.x = beetleship.x - scrollSpeed
+	beetleship.y = beetleship.y - scrollSpeed
+	-- change the transparenvy of the ship every time it moves
 	beetleship.alpha = beetleship.alpha + 0.01
+
 end
 -- Moveship will be called over and over again
 Runtime:addEventListener("enterFrame", Moveship)
@@ -49,7 +53,7 @@ rocketship.alpha = 0
 
 -- set the initial x and y postion of rocketship
 rocketship.x = 1024
-rocketship.y = display.contentHeight/2 
+rocketship.y = display.contentHeight/2
 
 -- function: Moveship 
 -- Input: this function accepts an event listener
@@ -60,6 +64,34 @@ local function Moveship(event)
 	rocketship.x = rocketship.x - scrollSpeed
 	-- change the transparency of the ship every time it moves so that it fades out.
 	rocketship.alpha = rocketship.alpha + 0.01
+end
+-- Moveship will be called over and over again
+Runtime:addEventListener("enterFrame", Moveship)
+
+--------------------------------------------------------------------------------------
+
+-- global variables
+scrollSpeed = 7
+
+-- charecter image width and height 
+local octopus = display.newImageRect("Images/octopus.png", 200, 200)
+
+-- set the image to be transparent
+octopus.alpha = 1
+
+-- set the initial x and y postion of octopus
+octopus.x = 1
+octopus.y = display.contentHeight/1.5
+
+-- function: Moveship 
+-- Input: this function accepts an event listener
+-- Output none 
+-- Description : this funtion adds the srroll speed to the x-value of the ship 
+local function Moveship(event)
+	-- add the scroll speed to the x-value of the ship
+	octopus.x = octopus.x + scrollSpeed
+	-- change the transparency of the ship every time it moves so that it fades out.
+	octopus.alpha = octopus.alpha - 0.01
 end
 -- Moveship will be called over and over again
 Runtime:addEventListener("enterFrame", Moveship)
