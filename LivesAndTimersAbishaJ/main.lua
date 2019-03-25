@@ -1,13 +1,13 @@
--- Title: MathFun
+-- Title: LivesAndTimers
 -- Name: Your Name
 -- Course: ICS2O/3C
 -- This program...
-
--- hide the status bar
+ 
+ -- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
 -- sets the background colour
-display.setDefault("background", 204/255, 255/255, 153/255)
+display.setDefault("background", 102/255, 255/255, 255/255)
 
 ---------------------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
@@ -23,56 +23,28 @@ local randomNumber2
 local userAnswer
 local correctAnswer
 local incorrectAnswer
-local randomOperator
+
+---------------------------------------------------------------------------------------------------
+--SOUNDS
+---------------------------------------------------------------------------------------------------
+
+-- Correct sound
+local correctSound = audio.loadSound( "Sounds/correctSound.mp3" ) -- Setting a variable to an mp3 file
+local correctSoundChannel
 
 ---------------------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 ---------------------------------------------------------------------------------------------------
 
 local function AskQuestion()
+	-- generate 2 random numbers between a max. and a min. number
+	randomNumber1 = math.random(0, 20)
+	randomNumber2 = math.random(0, 20)
 
-	-- generate a random Operator beetween 1 and 4
-	randomOperator = math.random(1,4)
+	correctAnswer = randomNumber1 + randomNumber2
 
-	-- generate 2 random numbers 
-	randomNumber1 = math.random(10, 20)
-	randomNumber2 = math.random(0, 10)
-
-	-- if random the random Operator is 1 do addition
-	if (randomOperator == 1) then
-
-		-- calculate the correct answer
-		correctAnswer = randomNumber1 + randomNumber2
-
-		-- create the question in the text object
-		questionObject.text = randomNumber1 .. " + " .. randomNumber2 .. " = " 
-
-	-- if the random Operator is 2 then do subtraction
-	elseif (randomOperator == 2) then
-
-		-- calculate the correct answer
-		correctAnswer = randomNumber1 - randomNumber2
-
-		-- create the question in the text object
-		questionObject.text = randomNumber1 .. " - " .. randomNumber2 .. " = " 
-
-    -- if the random Operator is 3 then do multiplication
-	elseif (randomOperator == 3) then
-
-		-- calculate the correct answer
-		correctAnswer = randomNumber1 * randomNumber2
-
-		-- create the question in the text object
-		questionObject.text = randomNumber1 .. " × " .. randomNumber2 .. " = " 
-
-     -- if the random Operator is 4 then do multiplication
-	elseif (randomOperator == 4) then
-
-		-- calculate the correct answer
-		correctAnswer = randomNumber1 / randomNumber2
-
-		-- create the question in the text object
-		questionObject.text = randomNumber1 .. " / " .. randomNumber2 .. " = " 
+	-- create question in text object 
+	questionObject.text = randomNumber1 .. " + " .. randomNumber2 .. " = "
 
 end
 
@@ -106,6 +78,9 @@ local function NumericFieldListener( event )
 		-- if tye users answer and the correct answer are the same:
 		if (userAnswer == correctAnswer) then 
 			correctObject.isVisible = true
+
+			correctSoundChannel = audio.play(correctSound)
+			
 			incorrectObject.isVisible = false
 			timer.performWithDelay(2000, HideCorrect)
 
@@ -146,5 +121,57 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 --FUNCTION CALLS
 ------------------------------------------------------------------------------------------------------
 
--- call thr function to ask the question
+-- call the function to ask the question
 AskQuestion()
+
+------------------------------------------------------------------------------------------------------
+
+-- variables for the timer
+local totalSeconds = 5
+local secondsLeft = 5
+local clockText
+local countDownTimer
+
+local lives = 3
+local heart1 
+local heart2
+local heart3
+
+--*** ADD LOCAL FUNCTION FOR: INCORRECT OBJECT, POINTS OBJECT, POINTS
+
+-----------------------------------------------------------------------------------------------------
+-- LOCAL FUNCTIONS
+-----------------------------------------------------------------------------------------------------
+
+local function UpdateTime()
+
+	-- decrement the number of seconds
+	secondsLeft = secondsLeft = 1
+
+	-- display the number of seconds left in the clock object
+	clockText.text = secondsLeft .. ""
+
+	if (secondsLeft == 0 ) then
+		-- reset the number of seconds left in the clock object
+		secondsLeft = totalSeconds
+		lives = lives - 1
+
+		-- *** IF THERE ARE NO MORE LIVES LEFT, PLAY A LOSE SOUND, SHOWA YOU LOSE IMAGE
+		-- AND CANCEL THE TIMER REMOVE THE THRID HEART BY MAKING IT INVISIBLE
+		if (lives == 2) then
+			heart2.isVisible = false
+		elseif (lives == 1) then
+			heart1.isVisible = false
+		end
+
+		-- *** CALL THE FUNCTION TO ASK A NEW QUESTION
+
+	end
+end
+
+-- function that calls the timer
+local function StartTimer()
+	-- ceate a countdown timer that loops infinetly
+	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
+end
+
