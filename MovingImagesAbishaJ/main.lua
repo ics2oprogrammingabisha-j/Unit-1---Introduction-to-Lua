@@ -1,4 +1,4 @@
--- Title: MovingObjects
+-- Title: MovingImages
 -- Name: Abisha Jesudas
 -- Course: ICS2O/3C
 -- This program moves a beetleship across the screen and then makes it fade out.
