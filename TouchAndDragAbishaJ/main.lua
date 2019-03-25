@@ -86,13 +86,11 @@ local function Girl2Listener(touch)
     end
     
     if (touch.phase == "ended") then
-        alreadyTouchedGirl1 = false
-        alreadyTouchedGirl2 = false
+        alreadyTouchedGirl1 = true
+        alreadyTouchedGirl2 = true
     end
 
 end
-
-
 
 -- add the respective listeners to each object  
 Girl1:addEventListener("touch", Girl1Listener)
