@@ -90,9 +90,14 @@ local function Girl3Listener(touch)
     end
     
     if (touch.phase == "ended") then
+<<<<<<< HEAD
         alreadyTouchedGirl1 = false
         alreadyTouchedGirl2 = false
         alreadyTouchedGirl3 = false
+=======
+        alreadyTouchedGirl1 = true
+        alreadyTouchedGirl2 = true
+>>>>>>> 54a591b9433ce665fef0dd8fb95dd6f5cc829acd
     end
 
 end
