@@ -40,7 +40,7 @@ Girl3.y = 210
 local function Girl1Listener(touch)
 
 	if (touch.phase == "began") then
-		if (alreadyTouchedGirl2 == false) then
+		if (alreadyTouchedGirl2 == false) and (alreadyTouchedGirl3 == false) then
 			  alreadyTouchedGirl1 = true
      end 
 	end
@@ -53,13 +53,14 @@ local function Girl1Listener(touch)
     if (touch.phase == "ended") then
         alreadyTouchedGirl1 = false
         alreadyTouchedGirl2 = false
+        alreadyTouchedGirl3 = false
     end
 end
 
 local function Girl2Listener(touch)
 
   if (touch.phase == "began") then
-    if (alreadyTouchedGirl1 == false) then
+    if (alreadyTouchedGirl1 == false) and (alreadyTouchedGirl3 == false) then
         alreadyTouchedGirl2 = true
      end 
   end
@@ -72,11 +73,14 @@ local function Girl2Listener(touch)
     if (touch.phase == "ended") then
         alreadyTouchedGirl1 = false
         alreadyTouchedGirl2 = false
-
+        alreadyTouchedGirl3 = false
     end
+end
+local function Girl3Listener(touch)
+
   if (touch.phase == "began") then
-    if (alreadyTouchedGirl1 == false) then
-        alreadyTouchedGirl2 = true
+    if (alreadyTouchedGirl1 == false) and (alreadyTouchedGirl2 == false) then
+        alreadyTouchedGirl3 = true
      end 
   end
 
@@ -88,11 +92,10 @@ local function Girl2Listener(touch)
     if (touch.phase == "ended") then
         alreadyTouchedGirl1 = false
         alreadyTouchedGirl2 = false
+        alreadyTouchedGirl3 = false
     end
 
 end
-
-
 
 -- add the respective listeners to each object  
 Girl1:addEventListener("touch", Girl1Listener)

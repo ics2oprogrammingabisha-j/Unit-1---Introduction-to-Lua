@@ -7,7 +7,7 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 -- sets the background colour
-display.setDefault("background", 204/255, 255/255, 153/255)
+display.setDefault("background", 255/255, 178/255, 102/255)
 
 ---------------------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
@@ -73,7 +73,7 @@ local function AskQuestion()
 
 		-- create the question in the text object
 		questionObject.text = randomNumber1 .. " / " .. randomNumber2 .. " = " 
-
+	end
 end
 
 local function HideCorrect()
