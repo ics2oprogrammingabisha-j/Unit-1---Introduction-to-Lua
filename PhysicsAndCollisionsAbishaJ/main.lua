@@ -21,7 +21,7 @@ local ground = display.newImage("Images/ground.png", 0, 0)
 ground.width = contentWidth
 
 -- Add to physics 
-physics.addBody(ground., "static", {friction=0.5, bounce=0.3})
+physics.addBody(ground, "static", {friction=0.5, bounce=0.3})
 
 -----------------------------------------------------------------------
 
