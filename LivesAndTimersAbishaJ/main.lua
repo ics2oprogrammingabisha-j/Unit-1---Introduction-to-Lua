@@ -25,8 +25,8 @@ local correctAnswer
 local incorrectAnswer
 
 -- variables for the timer
-local totalSeconds = 5
-local secondsLeft = 5
+local totalSeconds = 15
+local secondsLeft = 15
 local clockText
 local countDownTimer
 
