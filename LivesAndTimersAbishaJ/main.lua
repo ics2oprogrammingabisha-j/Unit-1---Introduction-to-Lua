@@ -80,6 +80,7 @@ local function StartTimer()
 end
 
 -------------------------------------------------------------------------------------------------
+
 local function AskQuestion()
 	-- generate 2 random numbers between a max. and a min. number
 	randomNumber1 = math.random(0, 20)
@@ -170,6 +171,7 @@ incorrectObject.isVisible = false
 clockText = display.newText( "", display.contentWidth/2, display.contentHeight*2/3, nil, 50 )
 clockText:setTextColor(0/255, 0/255, 0/255)
 clockText.isVisible = true
+
 -- Create numeric feild 
 numericField = native.newTextField( display.contentWidth/2, display.contentHeight/2, 150, 80)
 numericField.inputType = "number"
