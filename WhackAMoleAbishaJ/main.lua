@@ -45,13 +45,15 @@ function PopUp()
     mole.y = math.random( 0, display.contentHeight )
 
     mole.isVisble = true
-    timer.perfromWithDelay( 500, mole
+    timer.perfromWithDelay( 500, mole ) 
+
 end
 
 -- This function calls the PopUp function after 3 seconds
 function PopUpDelay()
     timer.perfromWithDelay( 3000, PopUp )
-end
+    
+    end
 
 -- This Function makes the mole invisible and the calls the PopDelay function
 function Hide()
@@ -59,13 +61,14 @@ function Hide()
     -- Changing Visibility 
     mole.isVisble = false
 
+    end
 
 
-end
-
--- This function increments the score only if the mole is cliked. It then displays the new score
+-- This function increments the score only if the mole is clicked. It then displays the new score
 function GameStart()
     PopUpDelay
+    
+    end
 end
 
 -- This function increments the score only if the mole is cliked. It then displays the new score.
