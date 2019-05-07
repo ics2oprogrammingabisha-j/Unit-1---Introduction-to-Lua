@@ -68,9 +68,6 @@ function Hide()
 function GameStart()
     PopUpDelay
     
-    end
-end
-
 -- This function increments the score only if the mole is cliked. It then displays the new score.
 function Whacked( event )
 
